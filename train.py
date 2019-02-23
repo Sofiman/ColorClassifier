@@ -17,7 +17,7 @@ with open('dataset.csv', newline='') as csv_file:
 dataset = np.array(dataset).astype('float32')
 dataset /= 255
 
-targets = np.array(targets).astype(np.float)
+targets = np.array(targets).astype('float32')
 
 model = Sequential()
 model.add(Dense(3, input_shape=(3,), activation='elu'))
