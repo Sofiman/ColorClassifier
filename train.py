@@ -20,10 +20,11 @@ dataset /= 255
 targets = np.array(targets).astype('float32')
 
 model = Sequential()
-model.add(Dense(3, input_shape=(3,), activation='elu'))
-model.add(Dense(2, input_shape=(3,), activation='elu'))
-model.add(Dense(1, input_shape=(2,), activation='elu'))
+model.add(Dense(32, input_shape=(3,), activation='elu'))
+model.add(Dense(16, input_shape=(32,), activation='elu'))
+model.add(Dense(8, input_shape=(16,), activation='elu'))
+model.add(Dense(1, input_shape=(8,), activation='elu'))
 model.compile(loss='mse', optimizer='sgd', metrics=['accuracy'])
 
-model.fit(dataset, targets, epochs=150, batch_size=128)
+model.fit(dataset, targets, epochs=100, batch_size=128)
 model.save('training.h5')
